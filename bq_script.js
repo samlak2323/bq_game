@@ -466,7 +466,7 @@ function cardPlayed(id) {
 
     //only want to care about clicks from who's turn it is and the round is ready to play
     if (!readyToPlay) {
-        console.log('Not ready to play round');
+        console.log('Not ready to play round yet');
         return;
     } else if(player !== players[upNext]) {
         console.log('Not ' + player.name + '\'s turn.');
