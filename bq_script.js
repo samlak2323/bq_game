@@ -477,7 +477,7 @@ function cardPlayed(id) {
     //AFTER we know it's the right player, now we want to get the card that was played and update the UI
     var cardClicked = player.hand[roundNum-1][id.charAt(id.length-1) -1];
     if (cardClicked.played == true) {
-        console.log('Card already played');
+        console.log('Card already played!');
         return;
     } else {
         cardClicked.played = true;
