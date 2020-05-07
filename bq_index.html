@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Brain Queen</title>
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
+        <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+        <link type="text/css" rel="stylesheet" href="bq_style.css">
+    </head>
+
+    <body>
+    <h1 id='header' class = 'header'>Brain Queen</h1>
+    <h2 id='header2' class = 'players_input'>Enter Players</h1>
+        <hr>
+
+        <div class = "player1 panel" >
+            <!-- Player 1 -->
+            <label for="fname" id="label_p1" class = 'playername player1'>Player 1:</label>
+            <input type="text" id="inputName_p1" name="fname" placeholder = 'Enter name' class = 'players_input inputbox player1'>
+            <input type="number" id="bid_p1" name="fname" class = 'bid player1 inputbox' placeholder= 'Enter Bid' align='center'>
+            <button type="button" id ="submit_bid_p1" class = "submit_bid_button bid" src = "button_submit.png">Submit Bid</button>
+
+            <label for="card" id="cards_p1" class = 'card_text player1'></label>
+
+            <img id="p1c1" class = "cards" src = "cards/yellow_1.png" onClick="cardPlayed(this.id)">
+            <img id="p1c2" class = "cards" src = "cards/yellow_2.png" onClick="cardPlayed(this.id)">
+            <img id="p1c3" class = "cards" src = "cards/yellow_3.png" onClick="cardPlayed(this.id)">
+            <img id="p1c4" class = "cards" src = "cards/yellow_4.png" onClick="cardPlayed(this.id)">
+            <img id="p1c5" class = "cards" src = "cards/yellow_5.png" onClick="cardPlayed(this.id)">
+            <img id="p1c6" class = "cards" src = "cards/yellow_6.png" onClick="cardPlayed(this.id)">
+            <img id="p1c7" class = "cards" src = "cards/yellow_7.png" onClick="cardPlayed(this.id)">
+            <img id="p1c8" class = "cards" src = "cards/yellow_8.png" onClick="cardPlayed(this.id)">
+            <img id="p1c9" class = "cards" src = "cards/yellow_9.png" onClick="cardPlayed(this.id)">
+            <img id="p1c10" class = "cards" src = "cards/yellow_10.png" onClick="cardPlayed(this.id)">
+
+            <label id="round_points_p1" class = 'player1 points'>Round Pts: </label>
+            <label id="total_points_p1" class = 'player1 points'>Total Pts: </label>
+            <hr>
+        </div>
+        
+
+        <div class = "player2">
+            <!-- Player 2 -->
+            <label for="fname" id="label_p2" class = 'playername player2'>Player 2:</label>
+            <input type="text" id="inputName_p2" name="fname" placeholder = 'Enter name' class = 'players_input inputbox player2'>
+            <input type="number" id="bid_p2" name="fname" class = 'bid player2 inputbox' placeholder= 'Enter Bid'>
+            <button type="button" id ="submit_bid_p2" class = "submit_bid_button bid">Submit Bid</button> 
+
+            <label for="cards" id="cards_p2" class = 'card_text player2'></label>
+
+            <img id="p2c1" class = "cards" src = "cards/green_1.png" onClick="cardPlayed(this.id)">
+            <img id="p2c2" class = "cards" src = "cards/green_2.png" onClick="cardPlayed(this.id)">
+            <img id="p2c3" class = "cards" src = "cards/green_3.png" onClick="cardPlayed(this.id)">
+            <img id="p2c4" class = "cards" src = "cards/green_4.png" onClick="cardPlayed(this.id)">
+            <img id="p2c5" class = "cards" src = "cards/green_5.png" onClick="cardPlayed(this.id)">
+            <img id="p2c6" class = "cards" src = "cards/green_6.png" onClick="cardPlayed(this.id)">
+            <img id="p2c7" class = "cards" src = "cards/green_7.png" onClick="cardPlayed(this.id)">
+            <img id="p2c8" class = "cards" src = "cards/green_8.png" onClick="cardPlayed(this.id)">
+            <img id="p2c9" class = "cards" src = "cards/green_9.png" onClick="cardPlayed(this.id)">
+            <img id="p2c10" class = "cards" src = "cards/green_10.png" onClick="cardPlayed(this.id)">
+
+            <label id="round_points_p2" class = 'player2 points'>Round Pts: </label>
+            <label id="total_points_p2" class = 'player2 points'>Total Pts: </label>
+            <hr>
+        </div>
+
+        <div class = "player3">
+            <!-- Player 3 -->
+            <label for="fname" id="label_p3" class = 'playername player3'>Player 3:</label>
+            <input type="text" id="inputName_p3" name="fname" placeholder = 'Enter name' class = 'players_input inputbox player3'>
+            <input type="number" id="bid_p3" name="fname" class = 'bid player3 inputbox' placeholder= 'Enter Bid'>
+            <button type="button" id ="submit_bid_p3" class = "submit_bid_button bid">Submit Bid</button> 
+
+            <label for="cards" id="cards_p3" class = 'card_text player3'></label>
+
+            <img id="p3c1" class = "cards" src = "cards/purple_1.png" onClick="cardPlayed(this.id)">
+            <img id="p3c2" class = "cards" src = "cards/purple_2.png" onClick="cardPlayed(this.id)">
+            <img id="p3c3" class = "cards" src = "cards/purple_3.png" onClick="cardPlayed(this.id)">
+            <img id="p3c4" class = "cards" src = "cards/purple_4.png" onClick="cardPlayed(this.id)">
+            <img id="p3c5" class = "cards" src = "cards/purple_5.png" onClick="cardPlayed(this.id)">
+            <img id="p3c6" class = "cards" src = "cards/purple_6.png" onClick="cardPlayed(this.id)">
+            <img id="p3c7" class = "cards" src = "cards/purple_7.png" onClick="cardPlayed(this.id)">
+            <img id="p3c8" class = "cards" src = "cards/purple_8.png" onClick="cardPlayed(this.id)">
+            <img id="p3c9" class = "cards" src = "cards/purple_9.png" onClick="cardPlayed(this.id)">
+            <img id="p3c10" class = "cards" src = "cards/purple_10.png" onClick="cardPlayed(this.id)">
+
+            <label id="round_points_p3" class = 'player3 points'>Round Pts: </label>
+            <label id="total_points_p3" class = 'player3 points'>Total Pts: </label>
+            <hr>
+        </div>
+
+
+        <div class = "player4" >
+            <!-- Player 4 -->
+            <label for="fname" id="label_p4" class = 'playername player4'>Player 4:</label>
+            <input type="text" id="inputName_p4" name="fname" placeholder = 'Enter name' class = 'players_input inputbox player4'>
+            <input type="number" id="bid_p4" name="fname" class = 'bid player4 inputbox' placeholder= 'Enter Bid'>
+            <button type="button" id ="submit_bid_p4" class = "submit_bid_button bid">Submit Bid</button> 
+
+            <label for="cards" id="cards_p4" class = 'card_text player4'></label>
+
+            <img id="p4c1" class = "cards" src = "cards/black_1.png" onClick="cardPlayed(this.id)">
+            <img id="p4c2" class = "cards" src = "cards/black_2.png" onClick="cardPlayed(this.id)">
+            <img id="p4c3" class = "cards" src = "cards/black_3.png" onClick="cardPlayed(this.id)">
+            <img id="p4c4" class = "cards" src = "cards/black_4.png" onClick="cardPlayed(this.id)">
+            <img id="p4c5" class = "cards" src = "cards/black_5.png" onClick="cardPlayed(this.id)">
+            <img id="p4c6" class = "cards" src = "cards/black_6.png" onClick="cardPlayed(this.id)">
+            <img id="p4c7" class = "cards" src = "cards/black_7.png" onClick="cardPlayed(this.id)">
+            <img id="p4c8" class = "cards" src = "cards/black_8.png" onClick="cardPlayed(this.id)">
+            <img id="p4c9" class = "cards" src = "cards/black_9.png" onClick="cardPlayed(this.id)">
+            <img id="p4c10" class = "cards" src = "cards/black_10.png" onClick="cardPlayed(this.id)">
+
+            <label id="round_points_p4" class = 'player4 points'>Round Pts: </label>
+            <label id="total_points_p4" class = 'player4 points'>Total Pts: </label>
+            <hr>
+        </div>
+
+        <div class = "player5" >
+            <!-- Player 5 -->
+            <label for="fname" id="label_p5" class = 'playername player5'>Player 5:</label>
+            <input type="text" id="inputName_p5" name="fname" placeholder = 'Enter name' class = 'players_input inputbox player5'>
+            <input type="number" id="bid_p5" name="fname" class = 'bid player5 inputbox' placeholder= 'Enter Bid'>
+            <button type="button" id ="submit_bid_p5" class = "submit_bid_button bid">Submit Bid</button> 
+
+            <label for="cards" id="cards_p5" class = 'card_text player5'></label>
+
+            <img id="p5c1" class = "cards" src = "cards/yellow_1.png" onClick="cardPlayed(this.id)">
+            <img id="p5c2" class = "cards" src = "cards/yellow_2.png" onClick="cardPlayed(this.id)">
+            <img id="p5c3" class = "cards" src = "cards/yellow_3.png" onClick="cardPlayed(this.id)">
+            <img id="p5c4" class = "cards" src = "cards/yellow_4.png" onClick="cardPlayed(this.id)">
+            <img id="p5c5" class = "cards" src = "cards/yellow_5.png" onClick="cardPlayed(this.id)">
+            <img id="p5c6" class = "cards" src = "cards/yellow_6.png" onClick="cardPlayed(this.id)">
+            <img id="p5c7" class = "cards" src = "cards/yellow_7.png" onClick="cardPlayed(this.id)">
+            <img id="p5c8" class = "cards" src = "cards/yellow_8.png" onClick="cardPlayed(this.id)">
+            <img id="p5c9" class = "cards" src = "cards/yellow_9.png" onClick="cardPlayed(this.id)">
+            <img id="p5c10" class = "cards" src = "cards/yellow_10.png" onClick="cardPlayed(this.id)">
+
+            <label id="round_points_p5" class = 'player5 points'>Round Pts: </label>
+            <label id="total_points_p5" class = 'player5 points'>Total Pts: </label>
+            <hr>
+        </div>
+
+        <div class = "player6">
+            <!-- Player 6 -->
+            <label for="fname" id="label_p6" class = 'playername player6'>Player 6:</label>
+            <input type="text" id="inputName_p6" name="fname" placeholder = 'Enter name' class = 'players_input inputbox player6'>
+            <input type="number" id="bid_p6" name="fname" class = 'bid player6 inputbox' placeholder= 'Enter Bid'>
+            <button type="button" id ="submit_bid_p6" class = "submit_bid_button bid">Submit Bid</button> 
+
+            <label for="cards" id="cards_p6" class = 'player6'></label>
+
+            <img id="p6c1" class = "cards" src = "cards/green_1.png" onClick="cardPlayed(this.id)">
+            <img id="p6c2" class = "cards" src = "cards/green_2.png" onClick="cardPlayed(this.id)">
+            <img id="p6c3" class = "cards" src = "cards/green_3.png" onClick="cardPlayed(this.id)">
+            <img id="p6c4" class = "cards" src = "cards/green_4.png" onClick="cardPlayed(this.id)">
+            <img id="p6c5" class = "cards" src = "cards/green_5.png" onClick="cardPlayed(this.id)">
+            <img id="p6c6" class = "cards" src = "cards/green_6.png" onClick="cardPlayed(this.id)">
+            <img id="p6c7" class = "cards" src = "cards/green_7.png" onClick="cardPlayed(this.id)">
+            <img id="p6c8" class = "cards" src = "cards/green_8.png" onClick="cardPlayed(this.id)">
+            <img id="p6c9" class = "cards" src = "cards/green_9.png" onClick="cardPlayed(this.id)">
+            <img id="p6c10" class = "cards" src = "cards/green_10.png" onClick="cardPlayed(this.id)">
+
+            <label id="round_points_p6" class = 'player6 points'>Round Pts: </label>
+            <label id="total_points_p6" class = 'player6 points'>Total Pts: </label>
+            <hr>
+        </div>
+
+        <div class = "played_cards_panel">
+            <!-- Cards panel -->
+            <hd id = "played_cards_header">Played Cards: </hd>
+
+            <img id="played_card_1" class = "played_cards" src = "cards/green_1.png">
+            <img id="played_card_2" class = "played_cards" src = "cards/green_2.png">
+            <img id="played_card_3" class = "played_cards" src = "cards/green_3.png">
+            <img id="played_card_4" class = "played_cards" src = "cards/green_4.png">
+            <img id="played_card_5" class = "played_cards" src = "cards/green_5.png">
+            <img id="played_card_6" class = "played_cards" src = "cards/green_6.png">
+            <label id = "hand_winner" class = "played_cards hand_winner">Winner</label>
+
+        </div>
+
+    </br>
+        <button type="button" class = "start_button" id ="btn_start_game">Start Game</button>  
+        <button type="button" class = "deal_button" id ="btn_deal_round">Deal Round 1</button>  
+        <button type="button" class = "play_button" id ="btn_play_round">Play Round 1</button>
+    
+    <script src="bq_script.js"></script>
+    </body>
+</html>
