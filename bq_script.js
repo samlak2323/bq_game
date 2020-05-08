@@ -471,41 +471,13 @@ function cardPlayed(id) {
     //get player that clicked
     var player = players[id.charAt(1) - 1];
 
-    //only want to care about clicks from who's turn it is and the round is ready to play
-    if (!readyToPlay) {
-        console.log('Not ready to play round yet');
-        return;
-    } else if(player !== players[upNext]) {
-        console.log('Not ' + player.name + '\'s turn.');
-        console.log(id);
-        return;
-    };
+    //Was it the right player?
+    if(validatePlayer(player) !== true) {return;};
 
-    //AFTER we know it's the right player, now we need to check if the card is valid
+    //Is the card valid?
     var cardClicked = player.hand[roundNum-1][id.charAt(id.length-1) -1];
-    //Has the card already been played?
-    if (cardClicked.played == true) {
-        console.log('Card already played!');
-        return;
-    }
+    if(validateCard(cardClicked,player) !== true) {return;};
 
-    //Is the card the right suit?
-    var suitSet = rounds[roundNum-1].hands[handNum].suitSet;
-    if(suitSet != false && cardClicked.suit != suitSet && cardClicked.isSpecial == false) {
-        //Check if they even have the right suit to play
-        for (card = 0; card < roundNum; card++) {
-            if(player.hand[roundNum-1][card].played == false && player.hand[roundNum-1][card].suit == suitSet) {
-                alert('Need to play ' + player.hand[roundNum-1][card].display + '!');
-                return;
-            }
-        }
-        console.log(cardClicked.display + ' play is allowed because ' + player.name + ' doesn\'t have any ' + suitSet + ' cards');
-    } else if (suitSet == false && cardClicked.setsSuit) {
-        rounds[roundNum-1].hands[handNum].suitSet = cardClicked.suit;
-        console.log('Suit set to ' + rounds[roundNum-1].hands[handNum].suitSet);
-    }
-
-    console.log(cardClicked);
     cardClicked.played = true;
     var currentHand = rounds[roundNum-1].hands[handNum].cards;
 
@@ -574,6 +546,46 @@ function cardPlayed(id) {
         
 }
 
+function validatePlayer(player) {
+    //only want to care about clicks from who's turn it is and the round is ready to play
+    if (!readyToPlay) {
+        console.log('Not ready to play round yet');
+        return false;
+    } else if(player !== players[upNext]) {
+        console.log('Not ' + player.name + '\'s turn.');
+        return false;
+    };
+    return true;
+};
+
+function validateCard(cardClicked, player) {
+    //Has the card already been played?
+    if (cardClicked.played == true) {
+        console.log('Card already played!');
+        return false;
+    }
+
+    //Is the card the right suit?
+    var suitSet = rounds[roundNum-1].hands[handNum].suitSet;
+    if(suitSet != false && cardClicked.suit != suitSet && cardClicked.isSpecial == false) {
+        //Check if they even have the right suit to play
+        for (card = 0; card < roundNum; card++) {
+            if(player.hand[roundNum-1][card].played == false && player.hand[roundNum-1][card].suit == suitSet) {
+                alert('Need to play ' + player.hand[roundNum-1][card].display + '!');
+                return false;
+            }
+        }
+        console.log(cardClicked.display + ' play is allowed because ' + player.name + ' doesn\'t have any ' + suitSet + ' cards');
+    } else if (suitSet == false && cardClicked.setsSuit) {
+        rounds[roundNum-1].hands[handNum].suitSet = cardClicked.suit;
+        console.log('Suit set to ' + rounds[roundNum-1].hands[handNum].suitSet);
+    }
+
+    console.log('Valid card played by ' + player.name + ':');
+    console.log(cardClicked);
+    return true;
+};
+
 function getWinner(cardsPlayed) {
 
     //by default, first card plaued is winning
@@ -581,7 +593,8 @@ function getWinner(cardsPlayed) {
     
     //only number cards
     for(var card = 1; card < cardsPlayed.length; card++) {
-        console.log('Winning card: ' + winningCard.display);
+        console.log('------Finding winner------');
+        console.log('Current winning card: ' + winningCard.display);
         console.log('Challenging card: ' + cardsPlayed[card].display);
         //Check for escape
         if (winningCard.suit == 'Escape') {
@@ -590,7 +603,9 @@ function getWinner(cardsPlayed) {
         }
         //same suite higher number
         if(cardsPlayed[card].suit == winningCard.suit && cardsPlayed[card].number > winningCard.number) {
+            console.log(cardsPlayed[card].display + ' beats ' + winningCard.display);
             winningCard = cardsPlayed[card];
+            continue;
         }
 
         if(cardsPlayed[card].suit == 'Black') {
@@ -598,6 +613,7 @@ function getWinner(cardsPlayed) {
             if (winningCard.suit != 'Black') {
                 console.log(cardsPlayed[card].display + ' beats ' + winningCard.display);
                 winningCard = cardsPlayed[card];
+                continue;
             }
             //if both cards are black, then the highest number wins
             else if (winningCard.number < cardsPlayed[card].number) {
@@ -613,7 +629,7 @@ function getWinner(cardsPlayed) {
     console.log('Final winning card is: ' + winningCard.display);
 
     return winningCard;
-}
+};
 
 function updateWins(winner, card) {
 
@@ -627,7 +643,7 @@ function updateWins(winner, card) {
             + players[player].bids[roundNum-1] + ', Won ' +
             players[player].wins[roundNum-1] + ')'
     }
-}
+};
 
 function calculateScores() {
     for(player = 0; player < players.length; player++) {
