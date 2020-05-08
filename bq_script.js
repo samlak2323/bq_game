@@ -5,7 +5,7 @@ class Card {
         this.number = number;
         this.bonus = bonus;
         this.isSpecial = isSpecial;
-        this.isSetSuit = setsSuit;
+        this.setsSuit = setsSuit;
         this.isExpansion = isExpansion;
         this.playedBy = -1;
         this.played = false;
@@ -120,6 +120,7 @@ class Hand {
         this.hand_num = hand_num;
         this.cards = [];
         this.winner = null;
+        this.suitSet = false;
     };
 };
 
@@ -361,7 +362,7 @@ document.getElementById('btn_start_game').addEventListener('click',function(){
 
     //Add cards to the deck
     deck.createDeck(suits)
-    .addEscapes(50);
+    .addEscapes(3);
     //.addPirates(4)
     //.addLoots(2)
     //.addMermaids(2)
@@ -480,17 +481,32 @@ function cardPlayed(id) {
         return;
     };
 
-    //AFTER we know it's the right player, now we want to get the card that was played and update the UI
+    //AFTER we know it's the right player, now we need to check if the card is valid
     var cardClicked = player.hand[roundNum-1][id.charAt(id.length-1) -1];
+    //Has the card already been played?
     if (cardClicked.played == true) {
         console.log('Card already played!');
         return;
-    } else {
-        cardClicked.played = true;
-    };
+    }
 
+    //Is the card the right suit?
+    var suitSet = rounds[roundNum-1].hands[handNum].suitSet;
+    if(suitSet != false && cardClicked.suit != suitSet && cardClicked.isSpecial == false) {
+        //Check if they even have the right suit to play
+        for (card = 0; card < roundNum; card++) {
+            if(player.hand[roundNum-1][card].played == false && player.hand[roundNum-1][card].suit == suitSet) {
+                alert('Need to play ' + player.hand[roundNum-1][card].display + '!');
+                return;
+            }
+        }
+        console.log(cardClicked.display + ' play is allowed because ' + player.name + ' doesn\'t have any ' + suitSet + ' cards');
+    } else if (suitSet == false && cardClicked.setsSuit) {
+        rounds[roundNum-1].hands[handNum].suitSet = cardClicked.suit;
+        console.log('Suit set to ' + rounds[roundNum-1].hands[handNum].suitSet);
+    }
 
     console.log(cardClicked);
+    cardClicked.played = true;
     var currentHand = rounds[roundNum-1].hands[handNum].cards;
 
     //add the card to the current hand
@@ -560,7 +576,7 @@ function cardPlayed(id) {
 
 function getWinner(cardsPlayed) {
 
-    //eventually... look through cards in the array and determine a winner
+    //by default, first card plaued is winning
     var winningCard = cardsPlayed[0];
     
     //only number cards
