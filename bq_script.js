@@ -7,10 +7,16 @@ class Card {
         this.isSpecial = isSpecial;
         this.isSetSuit = setsSuit;
         this.isExpansion = isExpansion;
-        this.display = this.suit + ' ' + this.number;
-        this.image = 'cards/'+suit + '_' + number +'.png';
         this.playedBy = -1;
         this.played = false;
+
+        if(isSpecial == true) {
+            this.display = this.suit;
+            this.image = 'cards/'+this.suit+'.png';
+        } else {
+            this.display = this.suit + ' ' + this.number;
+            this.image = 'cards/'+suit + '_' + number +'.png';
+        };
     };
 };
 
@@ -354,9 +360,9 @@ document.getElementById('btn_start_game').addEventListener('click',function(){
     console.log('clicked go');
 
     //Add cards to the deck
-    deck.createDeck(suits);
+    deck.createDeck(suits)
+    .addEscapes(50);
     //.addPirates(4)
-    //.addEscapes(3)
     //.addLoots(2)
     //.addMermaids(2)
     //.addKraken(1)
@@ -561,6 +567,11 @@ function getWinner(cardsPlayed) {
     for(var card = 1; card < cardsPlayed.length; card++) {
         console.log('Winning card: ' + winningCard.display);
         console.log('Challenging card: ' + cardsPlayed[card].display);
+        //Check for escape
+        if (winningCard.suit == 'Escape') {
+            winningCard = cardsPlayed[card];
+            continue;
+        }
         //same suite higher number
         if(cardsPlayed[card].suit == winningCard.suit && cardsPlayed[card].number > winningCard.number) {
             winningCard = cardsPlayed[card];
@@ -589,7 +600,6 @@ function getWinner(cardsPlayed) {
 }
 
 function updateWins(winner, card) {
-    console.log('update wins called');
 
     document.getElementById('hand_winner').style.display = 'inline-block';
     document.getElementById('hand_winner').textContent = winner.name + ' wins with a ' + card.display;
