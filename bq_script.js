@@ -565,6 +565,12 @@ function validateCard(cardClicked, player) {
         return false;
     }
 
+    //Don't need to check if it's the last hand of the round
+    if(roundNum == handNum+1) {
+        console.log(cardClicked.display + ' allowed because it\'s the last hand of the round');
+        return true;
+    };
+
     //Is the card the right suit?
     var suitSet = rounds[roundNum-1].hands[handNum].suitSet;
     if(suitSet != false && cardClicked.suit != suitSet && cardClicked.isSpecial == false) {
