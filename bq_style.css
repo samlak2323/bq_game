@@ -24,6 +24,18 @@ label {
     border-color: black;
 }
 
+.players{
+    float: left;
+    width: 50%;
+}
+
+.gameplay{
+    float: right;
+    width: 50%;
+    padding-left: 20px;
+}
+
+
 
 .start_button,
 .deal_button,
@@ -33,9 +45,11 @@ label {
     color: black;
     font-size: large;
     height:40px;
-    width: 200px;
+    width: 80%;
     margin-top: 20px;
     font-stretch: expanded;
+    align-items: center;
+    justify-content: center;
 }
 
 .column {
@@ -69,7 +83,22 @@ button:hover {
 }
 
 .header {
-    text-shadow: 1px 1px rgb(190, 24, 24);
+    font-family: monospace;
+    background-color: rgb(229, 229, 235);
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.game_header {
+    font-family: monospace;
+    background-color: rgb(229, 229, 235);
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
 }
 
 .playername {
@@ -110,7 +139,7 @@ button:hover {
 }
 
 .played_cards {
-    height: 60px;
+    height: 150px;
     padding: 2px;
 }
 

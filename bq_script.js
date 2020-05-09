@@ -159,6 +159,8 @@ function hideStartUIElements(){
     document.getElementById('btn_start_game').style.display = 'none';
     document.getElementById('header2').style.display = 'none';
 
+    document.getElementById('game_header').style.display = 'block';
+
 };
 
 //Once player names are entered, create list of players - remove blank player elements
@@ -278,7 +280,7 @@ function startRound(){
     upNext = upFirst; // set active player to be up next
     
      //Update header
-    document.getElementById('header').textContent = 'Round ' + roundNum + ': ' + players[upFirst].name + ' is up first.';
+    document.getElementById('game_header').textContent = 'Round ' + roundNum + ': ' + players[upFirst].name + ' is up first.';
     
     //Highlight player to show they're up next
     document.getElementById('label_p' + (upFirst+1)).classList.add('up_next');
@@ -294,7 +296,7 @@ function startRound(){
 function newRoundUI() {
     //get ready to deal a new round
     document.getElementById('btn_deal_round').style.display = 'block';
-    document.getElementById('header').textContent = 'Round ' + (roundNum+1) + ': ' + players.length + ' Players';
+    document.getElementById('game_header').textContent = 'Round ' + (roundNum+1) + ': ' + players.length + ' Players';
 };
 
 function hidePlayedCards(){
@@ -352,6 +354,9 @@ const wrongPoints = -10;
     document.getElementById('btn_deal_round').style.display = 'none';
     //hide round button
     document.getElementById('btn_play_round').style.display = 'none';
+
+    //hide game header
+    document.getElementById('game_header').style.display = 'none';
 
 })();
 
@@ -456,7 +461,7 @@ function playRound() {
     } else {
         hidePlayedCards();
         document.getElementById('label_p'+(upNext+1)).classList.add('up_next');
-        document.getElementById('header').textContent = 'Round ' + roundNum + ', Hand ' + (handNum+1) +': ' + players[upNext].name + ' is up next.';
+        document.getElementById('game_header').textContent = 'Round ' + roundNum + ', Hand ' + (handNum+1) +': ' + players[upNext].name + ' is up next.';
     }
 
     //Update header
@@ -489,12 +494,13 @@ function cardPlayed(id) {
 
     //display the card played in the cards played panel
     document.getElementById('played_cards_header').style.display = 'block';
+    document.getElementById('played_cards_header').textContent = 'Round ' + roundNum + ', Hand ' + (handNum+1) + ' of ' + roundNum;
     document.getElementById('played_card_' + currentHand.length).style.display = 'inline-block';
     document.getElementById('played_card_' + currentHand.length).src = cardClicked.image;
 
     //if all cards have been played
     if(currentHand.length === players.length) {
-        document.getElementById('header').textContent = 'Round ' + roundNum + ': ' + players[upNext].name + ' ended the hand.';
+        document.getElementById('game_header').textContent = 'Round ' + roundNum + ': ' + players[upNext].name + ' ended the hand.';
         document.getElementById('label_p'+(upNext+1)).classList.remove('up_next');
         
         //find out winner
@@ -533,9 +539,9 @@ function cardPlayed(id) {
         upNext = upNext === players.length-1 ? 0 : upNext + 1;
 
         if(currentHand.length === (players.length - 1) ) {
-            document.getElementById('header').textContent = 'Round ' + roundNum + ': ' + players[upNext].name + ' is last.';
+            document.getElementById('game_header').textContent = players[upNext].name + ' is last.';
         } else {
-            document.getElementById('header').textContent = 'Round ' + roundNum + ': ' + players[upNext].name + ' is up next.';
+            document.getElementById('game_header').textContent = players[upNext].name + ' is up next.';
         }
         
         //add to up next
@@ -639,8 +645,7 @@ function getWinner(cardsPlayed) {
 
 function updateWins(winner, card) {
 
-    document.getElementById('hand_winner').style.display = 'inline-block';
-    document.getElementById('hand_winner').textContent = winner.name + ' wins with a ' + card.display;
+    document.getElementById('game_header').textContent = winner.name + ' wins with a ' + card.display;
 
 
     for(player = 0; player < players.length; player++) {

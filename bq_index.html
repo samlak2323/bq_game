@@ -2,16 +2,18 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Brain Queen</title>
+        <title>BRAIN QUEEN</title>
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
         <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
         <link type="text/css" rel="stylesheet" href="bq_style.css">
     </head>
 
     <body>
-    <h1 id='header' class = 'header'>Brain Queen</h1>
+    <h1 id='header' class = 'header'> <img src="Logos/royalcrown.gif" style="height:60px;"> Brain Queen </h1>
     <h2 id='header2' class = 'players_input'>Enter Players</h1>
-        <hr>
+    
+    <div class = 'players' >
+        <hr width="80%">
 
         <div class = "player1 panel" >
             <!-- Player 1 -->
@@ -35,7 +37,7 @@
 
             <label id="round_points_p1" class = 'player1 points'>Round Pts: </label>
             <label id="total_points_p1" class = 'player1 points'>Total Pts: </label>
-            <hr>
+            <hr width="80%">
         </div>
         
 
@@ -61,7 +63,7 @@
 
             <label id="round_points_p2" class = 'player2 points'>Round Pts: </label>
             <label id="total_points_p2" class = 'player2 points'>Total Pts: </label>
-            <hr>
+            <hr width="80%">
         </div>
 
         <div class = "player3">
@@ -86,7 +88,7 @@
 
             <label id="round_points_p3" class = 'player3 points'>Round Pts: </label>
             <label id="total_points_p3" class = 'player3 points'>Total Pts: </label>
-            <hr>
+            <hr width="80%">
         </div>
 
 
@@ -112,7 +114,7 @@
 
             <label id="round_points_p4" class = 'player4 points'>Round Pts: </label>
             <label id="total_points_p4" class = 'player4 points'>Total Pts: </label>
-            <hr>
+            <hr width="80%">
         </div>
 
         <div class = "player5" >
@@ -137,7 +139,7 @@
 
             <label id="round_points_p5" class = 'player5 points'>Round Pts: </label>
             <label id="total_points_p5" class = 'player5 points'>Total Pts: </label>
-            <hr>
+            <hr width="80%">
         </div>
 
         <div class = "player6">
@@ -162,8 +164,15 @@
 
             <label id="round_points_p6" class = 'player6 points'>Round Pts: </label>
             <label id="total_points_p6" class = 'player6 points'>Total Pts: </label>
-            <hr>
+            <hr width="80%">
         </div>
+        <button type="button" class = "start_button" id ="btn_start_game">Start Game!</button>  
+        <button type="button" class = "deal_button" id ="btn_deal_round">Deal Round 1</button>  
+        <button type="button" class = "play_button" id ="btn_play_round">Play Round 1</button>
+    </div>
+
+    <div class = 'gameplay' >
+        <h1 id='game_header' class = 'game_header'></h1>
 
         <div class = "played_cards_panel">
             <!-- Cards panel -->
@@ -178,11 +187,7 @@
             <label id = "hand_winner" class = "played_cards hand_winner">Winner</label>
 
         </div>
-
-    </br>
-        <button type="button" class = "start_button" id ="btn_start_game">Start Game</button>  
-        <button type="button" class = "deal_button" id ="btn_deal_round">Deal Round 1</button>  
-        <button type="button" class = "play_button" id ="btn_play_round">Play Round 1</button>
+    </div>
     
     <script src="bq_script.js"></script>
     </body>
