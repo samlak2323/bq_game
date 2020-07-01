@@ -315,7 +315,7 @@ var upFirst = -1;
 var upNext;
 var currentRoundBids = 0;
 var players = [];
-const suits = ['Yellow','Green','Purple','Black'];
+const suits = ['yellow','green','purple','black'];
 const maxPlayers = 6;
 var deck = new Deck();
 var readyToPlay = false;
