@@ -15,7 +15,7 @@ class Card {
             this.image = 'cards/'+this.suit+'.png';
         } else {
             this.display = this.suit + ' ' + this.number;
-            this.image = 'cards/'+suit + '_' + number +'.png';
+            this.image = 'cards/'+this.suit + '_' + this.number +'.png';
         };
     };
 };
@@ -138,28 +138,25 @@ function shuffleCards() {
         console.log('Shuffled');
         console.log(deck.cardsInDeck);
 };
+
 //Clean up starting UI
 function hideStartUIElements(){
     //hide UI elements
-    for(var card = 0; card < document.getElementsByClassName('cards').length; card++) {
-        document.getElementsByClassName('cards')[card].style.display = 'none';
-        document.getElementsByClassName('cards')[card].classList.remove('cards_played');
-    }
+    $('.cards').hide().removeClass('cards_played');
 
     //hide all played cards
     hidePlayedCards();
 
     //Revert labels back to player names
     for(player = 1; player <= players.length; player++) {
-        document.getElementById('label_p' + player).textContent = players[player-1].name + ':';
+        $('#label_p' + player).text(players[player-1].name + ':');
     }
 
     //Revert names back to normal
      
-    document.getElementById('btn_start_game').style.display = 'none';
-    document.getElementById('header2').style.display = 'none';
-
-    document.getElementById('game_header').style.display = 'block';
+    $('#btn_start_game').hide();
+    $('#header2').hide();
+    $('#game_header').show();
 
 };
 
@@ -170,8 +167,10 @@ function createPlayers(){
     //Hides elements where player name is null
 
     for(i=1; i<= maxPlayers; i++) {
-        if(document.getElementById('inputName_p' + i).value != "") {
-            var newPlayer = new Player(document.getElementById('inputName_p' + i).value); //New Player
+        var playerName = $('#inputName_p' + i).val();
+
+        if(playerName != "") {
+            var newPlayer = new Player(playerName); //New Player
             newPlayer.id = i;
             players.push(newPlayer); //Push player to global players array
 
@@ -300,12 +299,11 @@ function newRoundUI() {
 };
 
 function hidePlayedCards(){
+    
     //hide all played cards
-    var playedCards = document.getElementsByClassName('played_cards');
-    for(el = 0; el < playedCards.length; el++) {
-       playedCards[el].style.display = 'none';
-    }
-    document.getElementById('played_cards_header').style.display = 'none';
+    $('.played_cards').hide();
+    $('#played_cards_header').hide();
+    $('#winning_hand_details').hide();
 };
 
 //global variables
@@ -357,6 +355,9 @@ const wrongPoints = -10;
 
     //hide game header
     document.getElementById('game_header').style.display = 'none';
+
+    //Listener for all cards
+    $(".cards").click(cardPlayed);
 
 })();
 
@@ -472,7 +473,7 @@ function playRound() {
 }
 
 function cardPlayed(id) {
-
+    id = this.id;
     //get player that clicked
     var player = players[id.charAt(1) - 1];
 
@@ -603,14 +604,20 @@ function getWinner(cardsPlayed) {
     //by default, first card plaued is winning
     var winningCard = cardsPlayed[0];
     
+    //display the winning hand logic
+    var displaylog = "";
+    
     //only number cards
     for(var card = 1; card < cardsPlayed.length; card++) {
-        console.log('------Finding winner------');
-        console.log('Current winning card: ' + winningCard.display);
-        console.log('Challenging card: ' + cardsPlayed[card].display);
+        var challengingCard = cardsPlayed[card];
+        
+        displaylog += `------Finding winner------ <br>`;
+        displaylog += `Current winning card: ${winningCard.display} <br>`;
+        displaylog += `Challenging card: ${challengingCard.display} <br>`;
+
         //Check for escape
         if (winningCard.suit == 'Escape') {
-            winningCard = cardsPlayed[card];
+            winningCard = challengingCard;
             continue;
         }
         //same suite higher number
@@ -620,9 +627,9 @@ function getWinner(cardsPlayed) {
             continue;
         }
 
-        if(cardsPlayed[card].suit == 'Black') {
+        if(cardsPlayed[card].suit == 'black') {
             //black beats other suit colors
-            if (winningCard.suit != 'Black') {
+            if (winningCard.suit != 'black') {
                 console.log(cardsPlayed[card].display + ' beats ' + winningCard.display);
                 winningCard = cardsPlayed[card];
                 continue;
@@ -638,7 +645,11 @@ function getWinner(cardsPlayed) {
             console.log(cardsPlayed[card].display + ' does not beat ' + winningCard.display);
         }
     }
-    console.log('Final winning card is: ' + winningCard.display);
+    displaylog += `---------------------- <br>`;
+    displaylog += `Final winning card is: ${winningCard.display} <br>`;
+    displaylog += `<strong> Winner: ${players[winningCard.playedBy].name} </strong>`;
+
+    $('#winning_hand_details').html(displaylog).show();
 
     return winningCard;
 };

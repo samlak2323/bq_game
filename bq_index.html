@@ -3,13 +3,14 @@
     <head>
         <meta charset="UTF-8">
         <title>BRAIN QUEEN</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
         <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
         <link type="text/css" rel="stylesheet" href="bq_style.css">
     </head>
 
     <body>
-    <h1 id='header' class = 'header'> <img src="logos/royalcrown.gif" style="height:60px;"> Brain Queen </h1>
+    <h1 id='header' class = 'header'> <img src="logos/royalcrown.gif" style="height:60px;"> BrainQueen </h1>
     <h2 id='header2' class = 'players_input'>Enter Players</h1>
     
     <div class = 'players' >
@@ -24,16 +25,16 @@
 
             <label for="card" id="cards_p1" class = 'card_text player1'></label>
 
-            <img id="p1c1" class = "cards" src = "cards/yellow_1.png" onClick="cardPlayed(this.id)">
-            <img id="p1c2" class = "cards" src = "cards/yellow_2.png" onClick="cardPlayed(this.id)">
-            <img id="p1c3" class = "cards" src = "cards/yellow_3.png" onClick="cardPlayed(this.id)">
-            <img id="p1c4" class = "cards" src = "cards/yellow_4.png" onClick="cardPlayed(this.id)">
-            <img id="p1c5" class = "cards" src = "cards/yellow_5.png" onClick="cardPlayed(this.id)">
-            <img id="p1c6" class = "cards" src = "cards/yellow_6.png" onClick="cardPlayed(this.id)">
-            <img id="p1c7" class = "cards" src = "cards/yellow_7.png" onClick="cardPlayed(this.id)">
-            <img id="p1c8" class = "cards" src = "cards/yellow_8.png" onClick="cardPlayed(this.id)">
-            <img id="p1c9" class = "cards" src = "cards/yellow_9.png" onClick="cardPlayed(this.id)">
-            <img id="p1c10" class = "cards" src = "cards/yellow_10.png" onClick="cardPlayed(this.id)">
+            <img id="p1c1" class = "cards" src = "cards/yellow_1.png">
+            <img id="p1c2" class = "cards" src = "cards/yellow_2.png">
+            <img id="p1c3" class = "cards" src = "cards/yellow_3.png">
+            <img id="p1c4" class = "cards" src = "cards/yellow_4.png">
+            <img id="p1c5" class = "cards" src = "cards/yellow_5.png">
+            <img id="p1c6" class = "cards" src = "cards/yellow_6.png">
+            <img id="p1c7" class = "cards" src = "cards/yellow_7.png">
+            <img id="p1c8" class = "cards" src = "cards/yellow_8.png">
+            <img id="p1c9" class = "cards" src = "cards/yellow_9.png">
+            <img id="p1c10" class = "cards" src = "cards/yellow_10.png">
 
             <label id="round_points_p1" class = 'player1 points'>Round Pts: </label>
             <label id="total_points_p1" class = 'player1 points'>Total Pts: </label>
@@ -50,16 +51,16 @@
 
             <label for="cards" id="cards_p2" class = 'card_text player2'></label>
 
-            <img id="p2c1" class = "cards" src = "cards/green_1.png" onClick="cardPlayed(this.id)">
-            <img id="p2c2" class = "cards" src = "cards/green_2.png" onClick="cardPlayed(this.id)">
-            <img id="p2c3" class = "cards" src = "cards/green_3.png" onClick="cardPlayed(this.id)">
-            <img id="p2c4" class = "cards" src = "cards/green_4.png" onClick="cardPlayed(this.id)">
-            <img id="p2c5" class = "cards" src = "cards/green_5.png" onClick="cardPlayed(this.id)">
-            <img id="p2c6" class = "cards" src = "cards/green_6.png" onClick="cardPlayed(this.id)">
-            <img id="p2c7" class = "cards" src = "cards/green_7.png" onClick="cardPlayed(this.id)">
-            <img id="p2c8" class = "cards" src = "cards/green_8.png" onClick="cardPlayed(this.id)">
-            <img id="p2c9" class = "cards" src = "cards/green_9.png" onClick="cardPlayed(this.id)">
-            <img id="p2c10" class = "cards" src = "cards/green_10.png" onClick="cardPlayed(this.id)">
+            <img id="p2c1" class = "cards" src = "cards/green_1.png">
+            <img id="p2c2" class = "cards" src = "cards/green_2.png">
+            <img id="p2c3" class = "cards" src = "cards/green_3.png">
+            <img id="p2c4" class = "cards" src = "cards/green_4.png">
+            <img id="p2c5" class = "cards" src = "cards/green_5.png">
+            <img id="p2c6" class = "cards" src = "cards/green_6.png">
+            <img id="p2c7" class = "cards" src = "cards/green_7.png">
+            <img id="p2c8" class = "cards" src = "cards/green_8.png">
+            <img id="p2c9" class = "cards" src = "cards/green_9.png">
+            <img id="p2c10" class = "cards" src = "cards/green_10.png">
 
             <label id="round_points_p2" class = 'player2 points'>Round Pts: </label>
             <label id="total_points_p2" class = 'player2 points'>Total Pts: </label>
@@ -75,16 +76,16 @@
 
             <label for="cards" id="cards_p3" class = 'card_text player3'></label>
 
-            <img id="p3c1" class = "cards" src = "cards/purple_1.png" onClick="cardPlayed(this.id)">
-            <img id="p3c2" class = "cards" src = "cards/purple_2.png" onClick="cardPlayed(this.id)">
-            <img id="p3c3" class = "cards" src = "cards/purple_3.png" onClick="cardPlayed(this.id)">
-            <img id="p3c4" class = "cards" src = "cards/purple_4.png" onClick="cardPlayed(this.id)">
-            <img id="p3c5" class = "cards" src = "cards/purple_5.png" onClick="cardPlayed(this.id)">
-            <img id="p3c6" class = "cards" src = "cards/purple_6.png" onClick="cardPlayed(this.id)">
-            <img id="p3c7" class = "cards" src = "cards/purple_7.png" onClick="cardPlayed(this.id)">
-            <img id="p3c8" class = "cards" src = "cards/purple_8.png" onClick="cardPlayed(this.id)">
-            <img id="p3c9" class = "cards" src = "cards/purple_9.png" onClick="cardPlayed(this.id)">
-            <img id="p3c10" class = "cards" src = "cards/purple_10.png" onClick="cardPlayed(this.id)">
+            <img id="p3c1" class = "cards" src = "cards/purple_1.png">
+            <img id="p3c2" class = "cards" src = "cards/purple_2.png">
+            <img id="p3c3" class = "cards" src = "cards/purple_3.png">
+            <img id="p3c4" class = "cards" src = "cards/purple_4.png">
+            <img id="p3c5" class = "cards" src = "cards/purple_5.png">
+            <img id="p3c6" class = "cards" src = "cards/purple_6.png">
+            <img id="p3c7" class = "cards" src = "cards/purple_7.png">
+            <img id="p3c8" class = "cards" src = "cards/purple_8.png">
+            <img id="p3c9" class = "cards" src = "cards/purple_9.png">
+            <img id="p3c10" class = "cards" src = "cards/purple_10.png">
 
             <label id="round_points_p3" class = 'player3 points'>Round Pts: </label>
             <label id="total_points_p3" class = 'player3 points'>Total Pts: </label>
@@ -101,16 +102,16 @@
 
             <label for="cards" id="cards_p4" class = 'card_text player4'></label>
 
-            <img id="p4c1" class = "cards" src = "cards/black_1.png" onClick="cardPlayed(this.id)">
-            <img id="p4c2" class = "cards" src = "cards/black_2.png" onClick="cardPlayed(this.id)">
-            <img id="p4c3" class = "cards" src = "cards/black_3.png" onClick="cardPlayed(this.id)">
-            <img id="p4c4" class = "cards" src = "cards/black_4.png" onClick="cardPlayed(this.id)">
-            <img id="p4c5" class = "cards" src = "cards/black_5.png" onClick="cardPlayed(this.id)">
-            <img id="p4c6" class = "cards" src = "cards/black_6.png" onClick="cardPlayed(this.id)">
-            <img id="p4c7" class = "cards" src = "cards/black_7.png" onClick="cardPlayed(this.id)">
-            <img id="p4c8" class = "cards" src = "cards/black_8.png" onClick="cardPlayed(this.id)">
-            <img id="p4c9" class = "cards" src = "cards/black_9.png" onClick="cardPlayed(this.id)">
-            <img id="p4c10" class = "cards" src = "cards/black_10.png" onClick="cardPlayed(this.id)">
+            <img id="p4c1" class = "cards" src = "cards/black_1.png">
+            <img id="p4c2" class = "cards" src = "cards/black_2.png">
+            <img id="p4c3" class = "cards" src = "cards/black_3.png">
+            <img id="p4c4" class = "cards" src = "cards/black_4.png">
+            <img id="p4c5" class = "cards" src = "cards/black_5.png">
+            <img id="p4c6" class = "cards" src = "cards/black_6.png">
+            <img id="p4c7" class = "cards" src = "cards/black_7.png">
+            <img id="p4c8" class = "cards" src = "cards/black_8.png">
+            <img id="p4c9" class = "cards" src = "cards/black_9.png">
+            <img id="p4c10" class = "cards" src = "cards/black_10.png">
 
             <label id="round_points_p4" class = 'player4 points'>Round Pts: </label>
             <label id="total_points_p4" class = 'player4 points'>Total Pts: </label>
@@ -126,16 +127,16 @@
 
             <label for="cards" id="cards_p5" class = 'card_text player5'></label>
 
-            <img id="p5c1" class = "cards" src = "cards/yellow_1.png" onClick="cardPlayed(this.id)">
-            <img id="p5c2" class = "cards" src = "cards/yellow_2.png" onClick="cardPlayed(this.id)">
-            <img id="p5c3" class = "cards" src = "cards/yellow_3.png" onClick="cardPlayed(this.id)">
-            <img id="p5c4" class = "cards" src = "cards/yellow_4.png" onClick="cardPlayed(this.id)">
-            <img id="p5c5" class = "cards" src = "cards/yellow_5.png" onClick="cardPlayed(this.id)">
-            <img id="p5c6" class = "cards" src = "cards/yellow_6.png" onClick="cardPlayed(this.id)">
-            <img id="p5c7" class = "cards" src = "cards/yellow_7.png" onClick="cardPlayed(this.id)">
-            <img id="p5c8" class = "cards" src = "cards/yellow_8.png" onClick="cardPlayed(this.id)">
-            <img id="p5c9" class = "cards" src = "cards/yellow_9.png" onClick="cardPlayed(this.id)">
-            <img id="p5c10" class = "cards" src = "cards/yellow_10.png" onClick="cardPlayed(this.id)">
+            <img id="p5c1" class = "cards" src = "cards/yellow_1.png">
+            <img id="p5c2" class = "cards" src = "cards/yellow_2.png">
+            <img id="p5c3" class = "cards" src = "cards/yellow_3.png">
+            <img id="p5c4" class = "cards" src = "cards/yellow_4.png">
+            <img id="p5c5" class = "cards" src = "cards/yellow_5.png">
+            <img id="p5c6" class = "cards" src = "cards/yellow_6.png">
+            <img id="p5c7" class = "cards" src = "cards/yellow_7.png">
+            <img id="p5c8" class = "cards" src = "cards/yellow_8.png">
+            <img id="p5c9" class = "cards" src = "cards/yellow_9.png">
+            <img id="p5c10" class = "cards" src = "cards/yellow_10.png">
 
             <label id="round_points_p5" class = 'player5 points'>Round Pts: </label>
             <label id="total_points_p5" class = 'player5 points'>Total Pts: </label>
@@ -151,16 +152,16 @@
 
             <label for="cards" id="cards_p6" class = 'player6'></label>
 
-            <img id="p6c1" class = "cards" src = "cards/green_1.png" onClick="cardPlayed(this.id)">
-            <img id="p6c2" class = "cards" src = "cards/green_2.png" onClick="cardPlayed(this.id)">
-            <img id="p6c3" class = "cards" src = "cards/green_3.png" onClick="cardPlayed(this.id)">
-            <img id="p6c4" class = "cards" src = "cards/green_4.png" onClick="cardPlayed(this.id)">
-            <img id="p6c5" class = "cards" src = "cards/green_5.png" onClick="cardPlayed(this.id)">
-            <img id="p6c6" class = "cards" src = "cards/green_6.png" onClick="cardPlayed(this.id)">
-            <img id="p6c7" class = "cards" src = "cards/green_7.png" onClick="cardPlayed(this.id)">
-            <img id="p6c8" class = "cards" src = "cards/green_8.png" onClick="cardPlayed(this.id)">
-            <img id="p6c9" class = "cards" src = "cards/green_9.png" onClick="cardPlayed(this.id)">
-            <img id="p6c10" class = "cards" src = "cards/green_10.png" onClick="cardPlayed(this.id)">
+            <img id="p6c1" class = "cards" src = "cards/green_1.png">
+            <img id="p6c2" class = "cards" src = "cards/green_2.png">
+            <img id="p6c3" class = "cards" src = "cards/green_3.png">
+            <img id="p6c4" class = "cards" src = "cards/green_4.png">
+            <img id="p6c5" class = "cards" src = "cards/green_5.png">
+            <img id="p6c6" class = "cards" src = "cards/green_6.png">
+            <img id="p6c7" class = "cards" src = "cards/green_7.png">
+            <img id="p6c8" class = "cards" src = "cards/green_8.png">
+            <img id="p6c9" class = "cards" src = "cards/green_9.png">
+            <img id="p6c10" class = "cards" src = "cards/green_10.png">
 
             <label id="round_points_p6" class = 'player6 points'>Round Pts: </label>
             <label id="total_points_p6" class = 'player6 points'>Total Pts: </label>
@@ -184,11 +185,22 @@
             <img id="played_card_4" class = "played_cards" src = "cards/green_4.png">
             <img id="played_card_5" class = "played_cards" src = "cards/green_5.png">
             <img id="played_card_6" class = "played_cards" src = "cards/green_6.png">
-            <label id = "hand_winner" class = "played_cards hand_winner">Winner</label>
+            <p id = "winning_hand_details"></p>
 
         </div>
     </div>
-    
+
+    <!-- Bootstrap Javascript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+
     <script src="bq_script.js"></script>
+
+    
     </body>
 </html>
